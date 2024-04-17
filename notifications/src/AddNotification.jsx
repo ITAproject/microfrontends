@@ -17,7 +17,7 @@ const AddNotification = () => {
     const handleSubmit = async e => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3003/notifications', notification);
+            const response = await axios.post(process.env.REACT_APP_WEB_API_GATEWAY_URL + '/notifications', notification);
             console.log('Notification added:', response.data);
             alert('Obvestilo dodano');
             // reload page if necessary

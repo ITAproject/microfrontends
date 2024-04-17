@@ -19,7 +19,7 @@ const AddProduct = () => {
     const handleSubmit = async e => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3003/products', product);
+            const response = await axios.post(process.env.REACT_APP_WEB_API_GATEWAY_URL + '/products', product);
             console.log('Product added:', response.data);
             alert('Produkt dodan')
             // reload page

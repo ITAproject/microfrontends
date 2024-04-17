@@ -1,0 +1,48 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Docker login
+        run: echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USER }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASS }}
+
+      - name: Build and Push Docker image for /host
+        run: |
+          cd /host
+          docker build -t jernejofic444/host-microfrontend -f Dockerfile .
+          docker push jernejofic444/host-microfrontend
+          cd -
+
+      - name: Build and Push Docker image for /discounts
+        run: |
+          cd /discounts
+          docker build -t jernejofic444/discounts-microfrontend -f Dockerfile .
+          docker push jernejofic444/discounts-microfrontend
+          cd -
+
+      - name: Build and Push Docker image for /notifications
+        run: |
+          cd /notifications
+          docker build -t jernejofic444/notifications-microfrontend -f Dockerfile .
+          docker push jernejofic444/notifications-microfrontend
+          cd -
+
+      - name: Build and Push Docker image for /products
+        run: |
+          cd /products
+          docker build -t jernejofic444/products-microfrontend -f Dockerfile .
+          docker push jernejofic444/products-microfrontend
+          cd -

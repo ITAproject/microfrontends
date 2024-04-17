@@ -18,7 +18,7 @@ const AddDiscount = () => {
     const handleSubmit = async e => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3003/discounts', discount);
+            const response = await axios.post(process.env.REACT_APP_WEB_API_GATEWAY_URL + '/discounts', discount);
             console.log('Discount added:', response.data);
             alert('Popust dodan');
             // reload page if necessary

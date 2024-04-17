@@ -11,7 +11,7 @@ const RemoveDiscount = () => {
     const handleSubmit = async e => {
         e.preventDefault();
         try {
-            const response = await axios.delete(`http://localhost:3003/discounts/${productId}`);
+            const response = await axios.delete(process.env.REACT_APP_WEB_API_GATEWAY_URL + `/discounts/${productId}`);
             console.log('Discount removed:', response.data);
             alert('Popust odstranjen');
             // reload page if necessary

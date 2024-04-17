@@ -6,7 +6,7 @@ const Notifications = () => {
     useEffect(() => {
         const fetchNotifications = async () => {
             try {
-                const response = await fetch(`http://localhost:3003/notifications`);
+                const response = await fetch(process.env.REACT_APP_WEB_API_GATEWAY_URL + `/notifications`);
                 const data = await response.json();
                 console.log(data)
                 setNotifications(data);
@@ -19,7 +19,7 @@ const Notifications = () => {
 
     const deleteNotification = async (notificationId) => {
         try {
-            await fetch(`http://localhost:3003/notifications/${notificationId}`, {
+            await fetch(process.env.REACT_APP_WEB_API_GATEWAY_URL + `/notifications/${notificationId}`, {
                 method: 'DELETE',
             });
             setNotifications(notifications.filter(notification => notification.id !== notificationId));
