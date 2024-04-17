@@ -31,12 +31,13 @@ const Notifications = () => {
 
     return (
         <div>
-            <h1>Obvestila:</h1>
+            <h1 style={{ color: 'grey', marginTop: '30px' }}>Obvestila:</h1>
             {notifications.map(notification => (
-                <div key={notification.id}>
-                    <h2>{notification.message}</h2>
-                    <button onClick={() => deleteNotification(notification.id)}>IZBRIŠI OBVESTILO</button>
+                <div key={notification.id} style={{ marginBottom: '20px', padding: '10px', backgroundColor: '#f7f7f7', borderRadius: '5px', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
+                    <h2 style={{ color: '#333', marginBottom: '10px' }}>{notification.message}</h2>
+                    <button style={{ backgroundColor: '#ff5f5f', color: '#fff', border: 'none', padding: '8px 12px', borderRadius: '5px', cursor: 'pointer' }} onClick={() => deleteNotification(notification.id)}>IZBRIŠI OBVESTILO</button>
                 </div>
+
             ))}
         </div>
     );

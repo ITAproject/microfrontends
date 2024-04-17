@@ -1,43 +1,36 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const AddNotification = () => {
-    const [notification, setNotification] = useState({
-        message: ''
-    });
+const RemoveDiscount = () => {
+    const [productId, setProductId] = useState('');
 
     const handleChange = e => {
-        const { name, value } = e.target;
-        setNotification(prevNotification => ({
-            ...prevNotification,
-            [name]: value
-        }));
+        setProductId(e.target.value);
     };
 
     const handleSubmit = async e => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3003/notifications', notification);
-            console.log('Notification added:', response.data);
-            alert('Obvestilo dodano');
+            const response = await axios.delete(`http://localhost:3003/discounts/${productId}`);
+            console.log('Discount removed:', response.data);
+            alert('Popust odstranjen');
             // reload page if necessary
             window.location.reload();
 
         } catch (error) {
-            console.error('Error adding notification:', error);
+            console.error('Error removing discount:', error);
         }
     };
 
     return (
         <div>
-            <h2  style={{ color: 'grey'}}>Objavi obvestilo</h2>
+            <h2 style={{ color: 'red'}}>Odstrani popust</h2>
             <form onSubmit={handleSubmit}>
                 <label>
-                    Sporočilo:
+                    Produkt ID:
                     <input
                         type="text"
-                        name="message"
-                        value={notification.message}
+                        value={productId}
                         onChange={handleChange}
                         required
                         style={{
@@ -53,10 +46,10 @@ const AddNotification = () => {
                     />
                 </label>
                 <br />
-                <button style={{ backgroundColor: '#1ca0ea', color: '#fff', border: 'none', padding: '5px 10px', cursor: 'pointer' }} type="submit">Objavi</button>
+                <button style={{ backgroundColor: 'grey', color: '#fff', border: 'none', padding: '5px 10px', cursor: 'pointer' }} type="submit">Odstrani</button>
             </form>
         </div>
     );
 };
 
-export default AddNotification;
+export default RemoveDiscount;

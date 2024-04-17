@@ -46,6 +46,7 @@ module.exports = (_, argv) => ({
       remotes: {},
       exposes: {
         "./AddDiscount": "./src/AddDiscount.jsx",
+        "./RemoveDiscount": "./src/RemoveDiscount.jsx",
       },
       shared: {
         ...deps,

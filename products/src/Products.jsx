@@ -35,17 +35,18 @@ const Products = () => {
 
     return (
         <div>
-            <h1>Produkti:</h1>
+            <h1 style={{ color: 'grey' }}>Produkti:</h1>
             {products.map(product => (
-                <div key={product.id}>
-                    <h2>{product.name}</h2>
-                    <p>Opis: {product.description}</p>
-                    <p>Cena: {product.price}</p>
-                    {product.discount > 0 ? <p>Popust: {product.discount}%</p>: null}
-                    <button onClick={() => deleteProduct(product.id)}>IZBRIŠI PRODUKT</button>
+                <div key={product.id} style={{ border: '1px solid #ccc', padding: '10px', marginBottom: '20px' }}>
+                    <h2 style={{ color: '#333' }}>{product.name}</h2>
+                    <p style={{ margin: '5px 0' }}>Opis: {product.description}</p>
+                    <p style={{ margin: '5px 0' }}>Cena: {product.price}</p>
+                    {product.discount > 0 ? <p style={{ margin: '5px 0' }}>Popust: {product.discount}%</p> : null}
+                    <button style={{ backgroundColor: '#ff5f5f', color: '#fff', border: 'none', padding: '5px 10px', cursor: 'pointer' }} onClick={() => deleteProduct(product.id)}>IZBRIŠI PRODUKT</button>
                 </div>
             ))}
         </div>
+
     );
 }
 

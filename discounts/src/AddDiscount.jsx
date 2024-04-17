@@ -31,7 +31,7 @@ const AddDiscount = () => {
 
     return (
         <div>
-            <h2 style={{ color: 'blue'}}>Dodaj popust</h2>
+            <h2 style={{ color: 'grey'}}>Dodaj popust</h2>
             <form onSubmit={handleSubmit}>
                 <label>
                     Produkt ID:
@@ -41,6 +41,16 @@ const AddDiscount = () => {
                         value={discount.productId}
                         onChange={handleChange}
                         required
+                        style={{
+                            padding: '8px 12px',
+                            borderRadius: '5px',
+                            border: '1px solid #ccc',
+                            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+                            boxSizing: 'border-box',
+                            width: '100%',
+                            marginTop: '5px',
+                            marginBottom: '10px'
+                        }}
                     />
                 </label>
                 <br />
@@ -53,10 +63,20 @@ const AddDiscount = () => {
                         min={0}
                         onChange={handleChange}
                         required
+                        style={{
+                            padding: '8px 12px',
+                            borderRadius: '5px',
+                            border: '1px solid #ccc',
+                            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+                            boxSizing: 'border-box',
+                            width: '100%',
+                            marginTop: '5px',
+                            marginBottom: '10px'
+                        }}
                     />
                 </label>
                 <br />
-                <button type="submit">Dodaj</button>
+                <button style={{ backgroundColor: '#1ca0ea', color: '#fff', border: 'none', padding: '5px 10px', cursor: 'pointer' }} type="submit">Dodaj</button>
             </form>
         </div>
     );

@@ -32,7 +32,7 @@ const AddProduct = () => {
 
     return (
         <div>
-            <h2  style={{ color: 'blue'}}>Dodaj produkt</h2>
+            <h2  style={{ color: 'grey'}}>Dodaj produkt</h2>
             <form onSubmit={handleSubmit}>
                 <label>
                     Ime:
@@ -42,6 +42,16 @@ const AddProduct = () => {
                         value={product.name}
                         onChange={handleChange}
                         required
+                        style={{
+                            padding: '8px 12px',
+                            borderRadius: '5px',
+                            border: '1px solid #ccc',
+                            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+                            boxSizing: 'border-box',
+                            width: '100%',
+                            marginTop: '5px',
+                            marginBottom: '10px'
+                        }}
                     />
                 </label>
                 <br />
@@ -52,6 +62,16 @@ const AddProduct = () => {
                         value={product.description}
                         onChange={handleChange}
                         required
+                        style={{
+                            padding: '8px 12px',
+                            borderRadius: '5px',
+                            border: '1px solid #ccc',
+                            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+                            boxSizing: 'border-box',
+                            width: '100%',
+                            marginTop: '5px',
+                            marginBottom: '10px'
+                        }}
                     ></textarea>
                 </label>
                 <br />
@@ -63,10 +83,21 @@ const AddProduct = () => {
                         value={product.price}
                         onChange={handleChange}
                         required
+                        min={0}
+                        style={{
+                            padding: '8px 12px',
+                            borderRadius: '5px',
+                            border: '1px solid #ccc',
+                            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+                            boxSizing: 'border-box',
+                            width: '100%',
+                            marginTop: '5px',
+                            marginBottom: '10px'
+                        }}
                     />
                 </label>
                 <br />
-                <button type="submit">Dodaj</button>
+                <button style={{ backgroundColor: '#1ca0ea', color: '#fff', border: 'none', padding: '5px 10px', cursor: 'pointer' }} type="submit">Dodaj</button>
             </form>
         </div>
     );
