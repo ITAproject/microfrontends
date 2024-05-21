@@ -4,7 +4,7 @@ const Dotenv = require('dotenv-webpack');
 const deps = require("./package.json").dependencies;
 module.exports = (_, argv) => ({
   output: {
-    publicPath: "http://localhost:3004/",
+    publicPath: "https://discounts-microfrontend-jernej10-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/",
   },
 
   resolve: {

@@ -4,7 +4,7 @@ const Dotenv = require('dotenv-webpack');
 const deps = require("./package.json").dependencies;
 module.exports = (_, argv) => ({
   output: {
-    publicPath: "http://localhost:3000/",
+    publicPath: "https://host-microfrontend-jernej10-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/",
   },
 
   resolve: {
@@ -44,9 +44,9 @@ module.exports = (_, argv) => ({
       name: "host",
       filename: "remoteEntry.js",
       remotes: {
-        products: "products@http://localhost:3001/remoteEntry.js",
-        notifications: "notifications@http://localhost:3002/remoteEntry.js",
-        discounts: "discounts@http://localhost:3004/remoteEntry.js",
+        products: "products@https://products-microfrontend-jernej10-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/remoteEntry.js",
+        notifications: "notifications@https://notifications-microfrontend-jernej10-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/remoteEntry.js",
+        discounts: "discounts@https://discounts-microfrontend-jernej10-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/remoteEntry.js",
       },
       exposes: {},
       shared: {
